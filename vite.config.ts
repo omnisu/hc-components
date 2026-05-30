@@ -4,5 +4,7 @@ import { defineConfig } from "vite";
 
 // https://vite.dev/config/
 export default defineConfig({
+	base: "hc-components",
+
 	plugins: [tailwindcss(), react()],
 });
