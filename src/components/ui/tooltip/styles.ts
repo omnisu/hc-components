@@ -2,7 +2,7 @@ import { cva } from "class-variance-authority";
 
 export const tooltipStyles = cva(
 	[
-		"group max-w-sm rounded-lg border border-(--tooltip-border) px-2.5 py-1.5 text-sm/6 will-change-transform [--tooltip-border:var(--color-muted-fg)]/30 dark:shadow-none *:[strong]:font-medium",
+		"group z-1000! max-w-sm rounded-lg border border-(--tooltip-border) px-2.5 py-1.5 text-sm/6 will-change-transform [--tooltip-border:var(--color-muted-fg)]/30 dark:shadow-none *:[strong]:font-medium",
 
 		// Opening animation
 		"data-[open]:animate-in data-[open]:fade-in",

@@ -18,7 +18,7 @@ export function Sidebar({ closeButton = true, className, children, ...props }: S
 					// biome-ignore lint/a11y/noStaticElementInteractions: Noop
 					// biome-ignore lint/a11y/useKeyWithClickEvents: Noop
 					<div
-						className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm"
+						className="fixed inset-0 z-50 bg-background/80"
 						onClick={() => setIsOpenOnMobile(false)}
 					/>
 				)}

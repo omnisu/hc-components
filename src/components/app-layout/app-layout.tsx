@@ -8,22 +8,17 @@ import { SidebarItem } from "../ui/sidebar/sidebar-item";
 import { SidebarProvider } from "../ui/sidebar/sidebar-provider";
 import { SidebarSection } from "../ui/sidebar/sidebar-section";
 import { SidebarSectionGroup } from "../ui/sidebar/sidebar-section-group";
-import { Tooltip } from "../ui/tooltip";
 
 interface Props {
 	children: ReactNode;
 }
 
-export function AppLayout(_props: Props) {
+export function AppLayout(props: Props) {
 	return (
 		<SidebarProvider>
 			<Sidebar>
 				<SidebarHeader>
 					<span>Header!</span>
-					<Tooltip>
-						<Tooltip.Trigger>Tooltip</Tooltip.Trigger>
-						<Tooltip.Content>Content???</Tooltip.Content>
-					</Tooltip>
 				</SidebarHeader>
 
 				<SidebarContent>
@@ -61,37 +56,7 @@ export function AppLayout(_props: Props) {
 				</SidebarFooter>
 			</Sidebar>
 
-			<SidebarInset>
-				<div className="text-5xl">
-					<h1>Main</h1>
-					<h1>Main</h1>
-					<h1>Main</h1>
-					<h1>Main</h1>
-					<h1>Main</h1>
-					<h1>Main</h1>
-					<h1>Main</h1>
-					<h1>Main</h1>
-					<h1>Main</h1>
-					<h1>Main</h1>
-					<h1>Main</h1>
-					<h1>Main</h1>
-					<h1>Main</h1>
-					<h1>Main</h1>
-					<h1>Main</h1>
-					<h1>Main</h1>
-					<h1>Main</h1>
-					<h1>Main</h1>
-					<h1>Main</h1>
-					<h1>Main</h1>
-					<h1>Main</h1>
-					<h1>Main</h1>
-					<h1>Main</h1>
-					<h1>Main</h1>
-					<h1>Main</h1>
-					<h1>Main</h1>
-					<h1>Main</h1>
-				</div>
-			</SidebarInset>
+			<SidebarInset>{props.children}</SidebarInset>
 		</SidebarProvider>
 	);
 }

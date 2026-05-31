@@ -42,8 +42,16 @@ export function SidebarContent(props: Props) {
 			className={cn(
 				"flex min-h-0 flex-1 scroll-mb-96 flex-col overflow-auto *:data-[slot=sidebar-section]:border-l-0",
 				state === "collapsed" && "items-center",
-				state !== "collapsed" && !isAtBottom && "mask-b-from-95%",
-				state !== "collapsed" && !isAtTop && "mask-t-from-5%",
+				state !== "collapsed" &&
+					!isAtBottom &&
+					"mask-[linear-gradient(to_top,transparent,black_10%)]",
+				state !== "collapsed" &&
+					!isAtTop &&
+					"mask-[linear-gradient(to_bottom,transparent,black_10%)]",
+				state !== "collapsed" &&
+					!isAtTop &&
+					!isAtBottom &&
+					"mask-[linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]",
 			)}
 		>
 			{props.children}

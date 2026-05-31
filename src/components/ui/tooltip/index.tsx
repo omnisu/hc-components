@@ -1,13 +1,11 @@
-"use client";
-
 import { Tooltip as TooltipPrimitive } from "@base-ui/react/tooltip";
 import { cva, type VariantProps } from "class-variance-authority";
-import type { ReactNode } from "react";
+import type { ReactElement, ReactNode } from "react";
 import { cn } from "../../../lib/utils/styles";
 
-export const tooltipStyles = cva(
+const tooltipStyles = cva(
 	[
-		"relative flex flex-col rounded-lg border border-border px-2.5 py-1.5 text-sm/6 will-change-transform dark:shadow-none *:[strong]:font-medium",
+		"relative z-100 flex flex-col rounded-lg border border-border px-2.5 py-1.5 text-sm/6 will-change-transform dark:shadow-none *:[strong]:font-medium",
 		"bg-popover text-foreground",
 		"data-open:animate-in data-open:fade-in",
 		"data-open:data-[side=left]:slide-in-from-right-1",
@@ -51,7 +49,7 @@ interface TooltipContentProps extends VariantProps<typeof tooltipStyles> {
 function TooltipContent({ sideOffset = 8, inverse, className, children }: TooltipContentProps) {
 	return (
 		<TooltipPrimitive.Portal>
-			<TooltipPrimitive.Positioner sideOffset={sideOffset}>
+			<TooltipPrimitive.Positioner sideOffset={sideOffset} className="z-100">
 				<TooltipPrimitive.Popup className={tooltipStyles({ inverse, className })}>
 					<TooltipPrimitive.Arrow
 						className={cn(
@@ -76,13 +74,14 @@ function TooltipContent({ sideOffset = 8, inverse, className, children }: Toolti
 }
 
 interface TooltipTriggerProps {
-	children: ReactNode;
+	render?: ReactElement | (() => ReactElement);
+	children?: ReactNode;
 	className?: string;
 }
 
 function TooltipTrigger(props: TooltipTriggerProps) {
 	return (
-		<TooltipPrimitive.Trigger className={props.className}>
+		<TooltipPrimitive.Trigger render={props.render} className={props.className}>
 			{props.children}
 		</TooltipPrimitive.Trigger>
 	);
